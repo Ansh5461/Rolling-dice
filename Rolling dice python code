@@ -1,0 +1,74 @@
+import random
+from tkinter import *
+from PIL import ImageTk,Image
+
+l=0
+
+master=Tk()
+master.geometry('600x600')
+
+#function to generate the random function on clicking the button
+def roll():
+    m=random.randint(1,6)
+    n.set(m)
+    global l
+    print(m)
+    l=m
+    if l==1:
+        img1=Image.open("C:\\Users\\Ansh Jhoshi\\Downloads\\dice1.png")
+        img1=img1.resize((50,50),Image.ANTIALIAS)
+        pic1=ImageTk.PhotoImage(img1)
+        lbl1.configure(image=pic1)
+        lbl1.image=pic1
+    elif l==2:
+        img2=Image.open("C:\\Users\\Ansh Jhoshi\\Downloads\\dice2.png")
+        img2=img2.resize((50,50),Image.ANTIALIAS)
+        pic2=ImageTk.PhotoImage(img2)
+        lbl1.configure(image=pic2)
+        lbl1.image=pic2
+    elif l==3:
+        img3=Image.open("C:\\Users\\Ansh Jhoshi\\Downloads\\dice3.png")
+        img3=img3.resize((50,50),Image.ANTIALIAS)
+        pic3=ImageTk.PhotoImage(img3)
+        lbl1.configure(image=pic3)
+        lbl1.image=pic3
+    elif l==4:
+        img4=Image.open("C:\\Users\\Ansh Jhoshi\\Downloads\\dice4.png")
+        img4=img4.resize((50,50),Image.ANTIALIAS)
+        pic4=ImageTk.PhotoImage(img4)
+        lbl1.configure(image=pic4)
+        lbl1.image=pic4
+    elif l==5:
+        img5=Image.open("C:\\Users\\Ansh Jhoshi\\Downloads\\dice5.png")
+        img5=img5.resize((50,50),Image.ANTIALIAS)
+        pic5=ImageTk.PhotoImage(img5)
+        lbl1.configure(image=pic5)
+        lbl1.image=pic5
+    elif l==6:
+        img6=Image.open("C:\\Users\\Ansh Jhoshi\\Downloads\\dice6.png")
+        img6=img6.resize((50,50),Image.ANTIALIAS)
+        pic6=ImageTk.PhotoImage(img6)
+        lbl1.configure(image=pic6)
+        lbl1.image=pic6
+        
+
+#Original label for putting out initial value        
+img1=Image.open("C:\\Users\\Ansh Jhoshi\\Downloads\\dice6.png")
+img1=img1.resize((50,50),Image.ANTIALIAS)
+pic1=ImageTk.PhotoImage(img1)
+lbl1=Label(master,image=pic1)
+lbl1.grid(row=2,column=2,padx=10,pady=5)
+
+#Button having roll command
+btn=Button(master,text="Roll", command=roll)
+btn.grid(row=3,column=2,padx=10,pady=5)
+
+#textvariable will be set here
+n=StringVar()
+n.set("Start!!!")
+
+#label to display number being generated
+lbl=Label(master,textvariable=n)
+lbl.grid(row=1,column=2,padx=10,pady=5)
+
+master.mainloop()
